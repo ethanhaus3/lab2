@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Ethan Haus</strong> — <em>ehaus@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The 'Stop and Frisk' Policing policy implemented in New York in 1990 (that grew in practice until 2014) unfairly affected Black and Hispanic people</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="FORprop2.png" alt="" />
+          <figcaption>Barchart depicting Complaints against Police Officers organized by race of the complainer.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Different Shades of Blue corresponding with Volume of Complaints (+1): I wanted another quick way for the reader to understand the difference between races, and color seemed like an easy way in conjunction with the size of the 'Bar'.</li>
+          <li>Organizing the x-axis from Most Complaints to Least (+2): To make it easier to compare between races, and to support my proposition, I organized </li>
+          <li>Looking at Data from 1990-2014 (-1): It's very subjective whether policies enacted under David Dinkins lead to the implementation of Stop and Frisk or not. While some say he layed essential groundwork, other's say it pales in comparison to Bloomberg. A larger sample size of data makes a bigger gap of racial disparities.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="Anti3.png" alt="" />
+          <figcaption>Demonstrates how the Volume of Complaints Grows with the Population</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Two Y Axes (-.5): Makes the graph easier to read and interprete, but also allows for more manipulation with scale to heighten the comparison</li>
+          <li>Cutting the Y-Axis from 1998-2014 (-1.5): The dataset didn't have any substanciated complaints from Black and Hispanic people from 1985-1998. In order to avoid the appearence of a growing trend, I just started the visualization at 1998. This doesn't capture the full scope of Stop and Frisk.</li>
+          <li>Generalizing Population Data (-1.5): I got my population data from the US Census, which only collects every 3 years. My positve trend line is based off 1990, 2000, and 2010. his likely doesn't capture fluctuations from year to year that are picked up in the complaint data, and instead creates the appearence of consistent positive growth. While the data is true, the growth is likely not as linear.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>This project made me think deeply about how I could manipulate the data to create different narratives. Early on, I spent considerable time crafting a graph that clearly communicated the disproportionate impact of NYPD complaints on Black and Hispanic New Yorkers. I was focused on being both truthful and effective: dimming color palettes for clarity, emphasizing the broken windows era with visual metaphors, and sequencing racial categories by volume to highlight disparity. I wanted to find a proposition I believed in, all while trying to create the most effective visualization possible.
+          This really set me up when trying to create my visualization against my proposition. It’s one thing to visualize what the data shows; it’s another to bend the framing of that data to support a contrary narrative. The challenge wasn’t just technical, it was rhetorical. I had to try dozens of framings—isolating time ranges, separating substantiated from unsubstantiated complaints, and aggregating complaints in ways that reduced visible disparities. Eventually, I plotted substantiated complaints alongside population trends using dual axes and selective time windows. Even though the chart was technically accurate, the impression it gave could be misleading. I don’t want to toot my own horn, but it actually seems pretty plausible. This gave me a great respect for how many stories you can tell with the same data. What seemed immediately clear to me when I was doing my EDA now becomes genuinely challenged.
+          This project showed me how there really are two sides to every story, and the responsibility we have when making these visualizations. There are easy changes to make that can really extenuate certain trends. One small tweak can completely shift the narrative. It opened my eyes to how my initial perception can bias my understanding of the bigger picture. I spent the whole time trying to create something that essentially lied to the reader. At the end, I feel I did my best work when I actually told the truth, just a different truth. I don’t think I have a crazy takeaway about certain tools to make earnest vs unethical visualizations. It’s more that what defines earned or unethical is so subjective.
+          </p>
+      </section>
+    </main>
+  </body>
+</html>
